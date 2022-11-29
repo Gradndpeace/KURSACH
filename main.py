@@ -1,10 +1,6 @@
 from pprint import pprint
 import json
 import requests
-import yadisk
-
-#ВК часть
-
 class VK:
 
    def __init__(self, access_token, user_id, version='5.131'):
@@ -19,37 +15,26 @@ class VK:
        response = requests.get(url, params={**self.params, **params})
        pprint(response.json())
 
-
-access_token = 'aaa'
+access_token = 'vk1.a.1lIASctNapb34kcSjpGl1TXkcZWU2OIEAU8XtRPhmAEwsJG3hL1Q7t6vYDXvXljMU_KS4e5zKXQxVVEmV7NF8YYymmt-lzzHGQY_bsWKTldJvxmqbbW9nY6RgoJjp2R8bB7gDkt5sTxwjNNmMUpwNeUSBWRWjks-CRC6ILY6OX6PdPZdo--PhzkrepSgm0GM0cbO-MwJvhySvoitWUCUCA'
 user_id = '2114792'
 vk = VK(access_token, user_id)
 pprint(vk.users_info())
 
-
-y.mkdir("/test/Hello Word") # Создать папку
-y.upload("file1.txt", "/test/file1.txt") # Загружает первый файл
-y.upload("file2.txt", "/test/file2.txt") # Загружает второй файл
-
-#Yandex Disk часть
-ya_token = 'aaa'
+ya_token = 'y0_AgAAAABe-gmCAADLWwAAAADSa_7eCtVzTHroQjCmXjGX-gvwepPsGGQ'
 class Yandex:
-
     def __init__(self, token):
         self.token = token
         self.host = 'https://cloud-api.yandex.net/v1/disk/resources/upload'
-
     def get_headers(self):
         return {'Content-Type': 'application/json',
                 'Authorization': f'OAuth {self.token}'}
-
-    def YandexUpload(self, file):
-        upload_link = 'D:\кодики\Kursovaya1'
+    def upload(self):
+        url = 'https://cloud-api.yandex.net/v1/disk/resources/upload'
         headers = self.get_headers()
-        response = requests.post(upload_link, data=open(file, 'rb'), headers=headers)
+        params = {'path':'kursovaya.api/aye.jpg', 'url': 'https://sun9-west.userapi.com/sun9-54/s/v1/if1/7ublsydicwPqq3WjsPivCBonG2qwQ9W1rwOdMPUvUP1KNhzDVo6TAXkN_5dbgcwzG_J14QGg.jpg?size=607x1080&quality=96&type=album'}
+        response = requests.post(url, headers=headers, params=params)
         response.raise_for_status()
-        if response.status_code == 201:
-            print('Success')
 
-#if __name__ == '__main__':
-    #yaya = Yandex(ya_token)
-    #yaya.YandexUpload('Ссылки.txt')
+if __name__ == '__main__':
+    yaya = Yandex(ya_token)
+    yaya.upload ()
