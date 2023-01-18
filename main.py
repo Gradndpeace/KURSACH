@@ -54,6 +54,9 @@ class VKCollector:
                     count=1000
                 )
             ).json()
+            response.raise_for_status()
+            if response.status_code == 201:
+                print('Success')
             offset += count
             count = response['response']['count']
             for item in response['response']['items']:
@@ -101,6 +104,10 @@ class YandexUploader:
             },
             headers={'Authorization': f'OAuth {self._token}'}
         ).json()
+        response.raise_for_status()
+        if response.status_code == 201:
+            print('Success')
+
         if 'error' in response and response['error'] == 'DiskNotFoundError':
             requests.put(
                 'https://cloud-api.yandex.net/v1/disk/resources',
@@ -120,6 +127,10 @@ class YandexUploader:
                     },
                     headers={'Authorization': f'OAuth {self._token}'}
                 ).json()
+                response.raise_for_status()
+                if response.status_code == 201:
+                    print('Success')
+
                 offset += 1000
                 files = list(
                     filter(
@@ -146,6 +157,9 @@ class YandexUploader:
             ),
             headers={'Authorization': f'OAuth {self._token}'}
         ).json()
+        response.raise_for_status()
+        if response.status_code == 201:
+            print('Success')
         return response['href']
 
     def upload_file(self, file: PhotoToUploadDict):
