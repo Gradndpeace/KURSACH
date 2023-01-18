@@ -8,8 +8,8 @@ import requests
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger('uploader')
 
-VK_ACCESS_TOKEN = "vk1.a.1lIASctNapb34kcSjpGl1TXkcZWU2OIEAU8XtRPhmAEwsJG3hL1Q7t6vYDXvXljMU_KS4e5zKXQxVVEmV7NF8YYymmt-lzzHGQY_bsWKTldJvxmqbbW9nY6RgoJjp2R8bB7gDkt5sTxwjNNmMUpwNeUSBWRWjks-CRC6ILY6OX6PdPZdo--PhzkrepSgm0GM0cbO-MwJvhySvoitWUCUCA"
-YANDEX_TOKEN = "y0_AgAAAABe-gmCAAiNqgAAAADZGdVPz5KFIz3fRQW5e3qNg4ZyLoooNW0"
+VK_ACCESS_TOKEN = ""
+YANDEX_TOKEN = ""
 FOLDER_NAME = 'kursovaya.api'
 USER_ID = 21142
 
